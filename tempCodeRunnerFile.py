@@ -1,2 +1,0 @@
-
-plt.legend()
