@@ -11,7 +11,6 @@ essential_data = list()
 non_essential_data = list()
 
 for organism in organisms :
-    # print("This organism is: %s" % organism)
     with open("./Data/%s_include_ortholog.json" % organism, "r") as f :
         data = json.load(f)
 
@@ -30,19 +29,13 @@ for organism in organisms :
             non_essential_data.append(non_essential_dict)
 
 
-# print("The number of essential_data genes: %d" % len(essential_data))
-# print("The number of non-essential_data genes: %d" % len(non_essential_data))
-# print("-----------------------------------------")
 
 all_data = essential_data * 4 + non_essential_data
 
-# print(all_data[:3])
 print(len(all_data))
 
 X_train, X_test = train_test_split(all_data, test_size=0.2)
 
-# print(len(X_train))
-# print(len(X_test))
 
 with open('traintest.txt', 'w') as f :
     essential = {'E':1, 'NE':0}
